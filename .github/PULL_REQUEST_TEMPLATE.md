@@ -54,7 +54,7 @@ Library:
 - deepspeed: @stas00
 - ray/raytune: @richardliaw, @amogkam
 - text generation: @patrickvonplaten
-- tokenizers: @n1t0, @LysandreJik
+- tokenizers: @n1t0, @SaulLu
 - trainer: @sgugger
 - pipelines: @LysandreJik
 
