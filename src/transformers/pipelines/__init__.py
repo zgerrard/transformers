@@ -102,6 +102,7 @@ if is_torch_available():
         AutoModelForMaskedLM,
         AutoModelForObjectDetection,
         AutoModelForQuestionAnswering,
+        AutoModelForSemanticSegmentation,
         AutoModelForSeq2SeqLM,
         AutoModelForSequenceClassification,
         AutoModelForSpeechSeq2Seq,
@@ -256,7 +257,7 @@ SUPPORTED_TASKS = {
     "image-segmentation": {
         "impl": ImageSegmentationPipeline,
         "tf": (),
-        "pt": (AutoModelForImageSegmentation,) if is_torch_available() else (),
+        "pt": (AutoModelForImageSegmentation, AutoModelForSemanticSegmentation) if is_torch_available() else (),
         "default": {"model": {"pt": "facebook/detr-resnet-50-panoptic"}},
         "type": "image",
     },
