@@ -3,10 +3,10 @@ name: Doctests
 on:
   push:
     branches:
-      - doctest*
+      - add_more_expected_outputs_to_doc_test
   repository_dispatch:
-  schedule:
-    - cron: "0 0 * * *"
+#  schedule:
+#    - cron: "0 0 * * *"
 
 
 env:
@@ -60,21 +60,21 @@ jobs:
           name: doc_tests_gpu_test_reports
           path: reports/doc_tests_gpu
 
-
-  send_results:
-    name: Send results to webhook
-    runs-on: ubuntu-latest
-    if: always()
-    needs: [run_doctests]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
-      - name: Send message to Slack
-        env:
-          CI_SLACK_BOT_TOKEN: ${{ secrets.CI_SLACK_BOT_TOKEN }}
-          CI_SLACK_CHANNEL_ID: ${{ secrets.CI_SLACK_CHANNEL_ID_DAILY_DOCS }}
-          CI_SLACK_CHANNEL_ID_DAILY: ${{ secrets.CI_SLACK_CHANNEL_ID_DAILY_DOCS }}
-          CI_SLACK_CHANNEL_DUMMY_TESTS: ${{ secrets.CI_SLACK_CHANNEL_DUMMY_TESTS }}
-        run: |
-          pip install slack_sdk
-          python utils/notification_service_doc_tests.py
+#
+#  send_results:
+#    name: Send results to webhook
+#    runs-on: ubuntu-latest
+#    if: always()
+#    needs: [run_doctests]
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/download-artifact@v2
+#      - name: Send message to Slack
+#        env:
+#          CI_SLACK_BOT_TOKEN: ${{ secrets.CI_SLACK_BOT_TOKEN }}
+#          CI_SLACK_CHANNEL_ID: ${{ secrets.CI_SLACK_CHANNEL_ID_DAILY_DOCS }}
+#          CI_SLACK_CHANNEL_ID_DAILY: ${{ secrets.CI_SLACK_CHANNEL_ID_DAILY_DOCS }}
+#          CI_SLACK_CHANNEL_DUMMY_TESTS: ${{ secrets.CI_SLACK_CHANNEL_DUMMY_TESTS }}
+#        run: |
+#          pip install slack_sdk
+#          python utils/notification_service_doc_tests.py
