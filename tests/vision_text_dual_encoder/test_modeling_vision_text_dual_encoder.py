@@ -337,7 +337,6 @@ class ViTBertModelTest(VisionTextDualEncoderMixin, unittest.TestCase):
         ) = text_config_and_inputs
 
         return {
-            "text_config": text_config,
             "vision_config": vision_config,
             "pixel_values": pixel_values,
             "attention_mask": input_mask,
@@ -425,7 +424,6 @@ class DeiTRobertaModelTest(VisionTextDualEncoderMixin, unittest.TestCase):
         ) = text_config_and_inputs
 
         return {
-            "text_config": text_config,
             "vision_config": vision_config,
             "pixel_values": pixel_values,
             "attention_mask": input_mask,
@@ -487,7 +485,6 @@ class CLIPVisionBertModelTest(VisionTextDualEncoderMixin, unittest.TestCase):
         ) = text_config_and_inputs
 
         return {
-            "text_config": text_config,
             "vision_config": vision_config,
             "pixel_values": pixel_values,
             "attention_mask": input_mask,
