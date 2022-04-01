@@ -2158,7 +2158,7 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin, PushToHubMix
             resolved_archive_file = [resolved_archive_file]
 
         for archive_file in resolved_archive_file:
-            state_dict = torch.load(resolved_archive_file, map_location="cpu")
+            state_dict = torch.load(archive_file, map_location="cpu")
 
             # materialize state_dict entries one by one on CPU
             for k in loaded_state_dict_keys:
