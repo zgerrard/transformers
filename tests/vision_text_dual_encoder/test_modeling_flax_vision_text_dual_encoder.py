@@ -307,7 +307,6 @@ class FlaxViTBertModelTest(VisionTextDualEncoderMixin, unittest.TestCase):
 
         # make sure that cross attention layers are added
         return {
-            "text_config": text_config,
             "vision_config": vision_config,
             "pixel_values": pixel_values,
             "attention_mask": attention_mask,
@@ -358,7 +357,6 @@ class FlaxCLIPVisionBertModelTest(VisionTextDualEncoderMixin, unittest.TestCase)
 
         # make sure that cross attention layers are added
         return {
-            "text_config": text_config,
             "vision_config": vision_config,
             "pixel_values": pixel_values,
             "attention_mask": attention_mask,
